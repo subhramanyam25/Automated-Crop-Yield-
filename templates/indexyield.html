@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document_1</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      body {
+        padding-top: 70px;
+        background-color: #172A3A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      
+      .card {
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        text-align: center;
+        background-color: #fff;
+        margin: 10px;
+      }
+      
+      .card-title {
+        color: #007bff;
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      
+      .card-text {
+        color: #000;
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+      
+      .btn-primary {
+        background-color: #007bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #172A3A">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <br>
+        <p style="font-family:Georgia, 'Times New Roman', Times, serif; font-size: x-large;">AgriTech</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <button class="nav-link active" aria-current="page"  id="navv" style="font-size: large; background-color: #09bc8a ; border: solid black 6px;" onclick="location.href='/another2-page'">Home</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link" id="navv" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;" onclick="location.href='/yield'">Predict Yield</button>
+          </li>
+          <li class="nav-item">
+            <button class="nav-link active" aria-current="page"  id="navv" onclick="location.href='/another-page'" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;">View Data</button>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page"  id="navvi" onclick="location.href='/another-page'" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;">Language</a>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="card" style="width: 18rem;">
+    <img src="{{url_for('static', filename='th.jpg')}}" class="rounded img-fluid" alt="Image" class="card-img-top"/>
+    <div class="card-body">
+      <h5 class="card-title">YIELD PREDICTION WITH ALL PARAMETERS</h5>
+      <p class="card-text">Click, if the values of all the parameters like Rainfall, Max & Min temperature, pH, Micro nutrients (Nitrogen, Phosphorus, Potassium, Zinc, Iron, Copper, Manganese) of soil, and Irrigation level are known.</p>
+      <a onclick="location.href='/predict_yield'" class="btn btn-primary">PREDICT</a>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <img src="{{url_for('static', filename='th 1.jpg')}}" class="rounded img-fluid" alt="Image" class="card-img-top"/>
+    <div class="card-body">
+      <h5 class="card-title">YIELD PREDICTION USING DEFAULT AND API VALUES</h5>
+      <p class="card-text">Here, the Rainfall, Max & Min temperature values are taken using Weather API, and remaining values are filled with default values.</p>
+      <a onclick="location.href='/default_yield'" class="btn btn-primary">PREDICT</a>
+    </div>
+  </div>
+</body>
+</html>

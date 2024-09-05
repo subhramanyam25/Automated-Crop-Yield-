@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <style>
+    body {
+      background-color: #567d9e;
+    }
+
+    .navbar-brand p {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: x-large;
+      margin-bottom: 0;
+    }
+
+    .nav-link {
+      font-size: large;
+      background-color: #09bc8a;
+      border: solid black 6px;
+      color: white;
+    }
+
+    .nav-link.active {
+      background-color: #09bc8a;
+    }
+
+    select,
+    input[type='submit'] {
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #172A3A">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <br />
+        <p>AgriTech</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/another2-page">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/yield">Predict Yield</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/another-page">View Data</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/another-page">Language</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br><br><br><br><br><br>
+  <form action="{{ url_for('default_page') }}" method="post">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-12">
+            <label class="form-label" style="color: white; font-size: x-large;">District</label>
+            <select class="form-select" name="district">
+              <option value="Adilabad">Adilabad</option>
+              <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
+              <option value="Jagtial">Jagtial</option>
+              <option value="Jangaon">Jangaon</option>
+              <option value="Jayashankar">Jayashankar Bhupalpally</option>
+              <option value="Jogulamba">Jogulamba Gadwal</option>
+              <option value="Kamareddy">Kamareddy</option>
+              <option value="Karimnagar">Karimnagar</option>
+              <option value="Khammam">Khammam</option>
+              <option value="Komaram bheem asifabad">Komaram bheem asifabad</option>
+              <option value="Mahabubabad">Mahabubabad</option>
+              <option value="Mahabubnagar">Mahabubnagar</option>
+              <option value="Mancherial">Mancherial</option>
+              <option value="Medak">Medak</option>
+              <option value="Medchal">Medchal</option>
+              <option value="Mulugu">Mulugu</option>
+              <option value="Nagarkurnool">Nagarkurnool</option>
+              <option value="Nalgonda">Nalgonda</option>
+              <option value="Narayanpet">Narayanpet</option>
+              <option value="Nirmal">Nirmal</option>
+              <option value="Nizamabad">Nizamabad</option>
+              <option value="Peddapalli">Peddapalli</option>
+              <option value="Rajanna">Rajanna</option>
+              <option value="Rangareddy">Rangareddy</option>
+              <option value="Sangareddy">Sangareddy</option>
+              <option value="Siddipet">Siddipet</option>
+              <option value="Suryapet">Suryapet</option>
+              <option value="Vikarabad">Vikarabad</option>
+              <option value="Wanaparthy">Wanaparthy</option>
+              <option value="Warangal">Warangal</option>
+              <option value="Warangal Urban">Warangal Urban</option>
+              <option value="Yadadri">Yadadri</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <label class="form-label" style="color: white; font-size: x-large;">Season</label>
+            <select class="form-select" name="season">
+              <option value="Kharif">Kharif</option>
+              <option value="Rabi">Rabi</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <label class="form-label" style="color: white; font-size: x-large;">Crop</label>
+            <select class="form-select" name="crop">
+              <option value="Crop_Groundnut">Groundnut</option>
+              <option value="Crop_Maize">Maize</option>
+              <option value="Crop_Moong(Green Gram)">Moong (Green Gram)</option>
+              <option value="Crop_Rice">Rice</option>
+              <option value="Crop_Cotton(lint)">Cotton (Lint)</option>tfg  
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12">
+            <input class="btn btn-primary" type="submit" value="Submit" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <img src="{{url_for('static', filename='11.jpg')}}" class="rounded img-fluid" alt="Image" />
+      </div>
+    </div>
+  </div>
+</form>
+<h1 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:xx-large; align-items: center;" class="badge text-bg-success">Yield is {{result}}</h1>
+</body>
+
+</html>

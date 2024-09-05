@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+      body {
+        padding-top: 80px;
+        background-color: #567d9e;
+      }
+      
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 20px;
+        color: white;
+      }
+
+      label {
+        margin-top: 10px;
+      }
+
+      input[type="text"],
+      select {
+        width: 300px;
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+        margin-bottom: 10px;
+      }
+
+      input[type="submit"] {
+        width: 200px;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+      }
+
+      h1 {
+        margin-top: 20px;
+        color: white;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body> 
+    <nav class="navbar navbar-expand-sm navbar-dark fixed-top" style="background-color: #172A3A">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <br>
+          <p style="font-family:Georgia, 'Times New Roman', Times, serif; font-size: x-large;">AgriTech</p>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <button class="nav-link active" aria-current="page"  id="navv" style="font-size: large; background-color: #09bc8a ; border: solid black 6px;" onclick="location.href='/another2-page'">Home</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" id="navv" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;" onclick="location.href='/yield'">Predict Yield</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link active" aria-current="page"  id="navv" onclick="location.href='/another-page'" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;">View Data</button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page"  id="navvi" onclick="location.href='/another-page'" style="font-size:large; color: white; background-color: #09bc8a ; border: solid black 6px;">Language</a>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div>    
+    <form action="{{ url_for('predict_page') }}" method="post">
+
+      <label for="rainfall">Rainfall (mm):</label>
+      <input type="text" id="rainfall" name="rainfall" required/><br />
+
+      <label for="min_temp">Minimum Temperature (°C):</label>
+      <input type="text" id="min_temp" name="min_temp" value="{{ min_temp }}" /><br />
+
+      <label for="max_temp">Maximum Temperature (°C):</label>
+      <input type="text" id="max_temp" name="max_temp" value="{{ max_temp }}" /><br />
+
+      <label for="ph">pH:</label>
+      <input type="text" id="ph" name="ph" required /><br />
+
+      <label for="n">N (Kg/Hectare):</label>
+      <input type="text" id="n" name="n" required /><br />
+
+      <label for="p">P (Kg/Hectare):</label>
+      <input type="text" id="p" name="p" required /><br />
+
+      <label for="k">K (Kg/Hectare):</label>
+      <input type="text" id="k" name="k" required /><br />
+
+      <label for="zn">Zn (ppm):</label>
+      <input type="text" id="zn" name="zn" required /><br />
+
+      <label for="fe">Fe (ppm):</label>
+      <input type="text" id="fe" name="fe" required /><br />
+
+      <label for="cu">Cu (ppm):</label>
+      <input type="text" id="cu" name="cu" required /><br />
+
+      <label for="mn">Mn (ppm):</label>
+      <input type="text" id="mn" name="mn" required /><br />
+
+      <label for="irrigation">Irrigation (MBGL):</label>
+      <input type="text" id="irrigation" name="irrigation" required /><br />
+      
+      <select name="district" value="{{district}}"> 
+        <option value="Adilabad">Adilabad</option>
+        <option value="Bhadradri Kothagudem">Bhadradri Kothagudem</option>
+        <option value="Jagtial">Jagtial</option>
+        <option value="Jangaon">Jangaon</option>
+        <option value="Jayashankar">Jayashankar Bhupalpally</option>
+        <option value="Jogulamba">Jogulamba Gadwal</option>
+        <option value="Kamareddy">Kamareddy</option>
+        <option value="Karimnagar">Karimnagar</option>
+        <option value="Khammam">Khammam</option>
+        <option value="Komaram bheem asifabad">Komaram bheem asifabad</option>
+        <option value="Mahabubabad">Mahabubabad</option>
+        <option value="Mahabubnagar">Mahabubnagar</option>
+        <option value="Mancherial">Mancherial</option>
+        <option value="Medak">Medak</option>
+        <option value="Medchal">Medchal</option>
+        <option value="Mulugu">Mulugu</option>
+        <option value="Nagarkurnool">Nagarkurnool</option>
+        <option value="Nalgonda">Nalgonda</option>
+        <option value="Narayanpet">Narayanpet</option>
+        <option value="Nirmal">Nirmal</option>
+        <option value="Nizamabad">Nizamabad</option>
+        <option value="Peddapalli">Peddapalli</option>
+        <option value="Rajanna">Rajanna</option>
+        <option value="Rangareddy">Rangareddy</option>
+        <option value="Sangareddy">Sangareddy</option>
+        <option value="Siddipet">Siddipet</option>
+        <option value="Suryapet">Suryapet</option>
+        <option value="Vikarabad">Vikarabad</option>
+        <option value="Wanaparthy">Wanaparthy</option>
+        <option value="Warangal">Warangal</option>
+        <option value="Warangal Urban">Warangal Urban</option>
+        <option value="Yadadri">Yadadri</option>
+      </select>
+    
+      <select name="season" value="{{season}}">
+         <option value="Kharif">Kharif</option>
+         <option value="rabi">Rabi</option>
+       </select>
+       <select name="crop" value="{{crop}}">
+         <option value="Crop_Groundnut">Groundnut</option>
+         <option value="Crop_Maize">Maize</option>
+         <option value="Crop_Moong(Green Gram)">Moong (Green Gram)</option>
+         <option value="Crop_Rice">Rice</option>
+         <option value="Crop_cotton(lint)">Cotton (Lint)</option>
+       </select>
+    
+      <input type="submit" value="Submit" />
+    </form>
+    </div>
+    <h1 >Yield is {{result}}</h1>
+  </body>
+</html>
